@@ -324,5 +324,3 @@ df['Test']=test
 df.to_csv(os.path.join(path,"freq_abs.csv"))
 
 subprocess.call ("/usr/bin/Rscript --vanilla mat_plots.R", shell=True)
-
-
