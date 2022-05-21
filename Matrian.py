@@ -722,6 +722,7 @@ def main(path, fasta, gen, sp, distance, n=False, geo_m=False, out_name=False):
         df = tmp.geoanalyze_max_intra()
         return df
 
+
 #    if n==True:
 #        List=tmp.name_sp(gen,sp)
 #        with open(out_name,'w+') as nominal_file:

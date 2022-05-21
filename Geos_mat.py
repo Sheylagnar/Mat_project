@@ -231,15 +231,15 @@ if fasta_nodisp.check_fasta() is False:
     sys.exit("Error: different length sequences, please check your alignment in ALN_nodisp.fasta")
 fasta_nodisp.sort_fasta()
 
-# disp_df = Matrian.main(path+"/", 'ALN_disp.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="disp")
-# nodisp_df = Matrian.main(path+"/", 'ALN_nodisp.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="no_disp")
-# head_df = Matrian.main(path+"/", 'ALN_head.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="head")
-# paleo_df = Matrian.main(path+"/", 'ALN_paleo.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="paleo")
-#
-# disp_df.to_pickle(os.path.join(path,'max_freq_disp.pkl'))
-# nodisp_df.to_pickle(os.path.join(path,'max_freq_nodisp.pkl'))
-# head_df.to_pickle(os.path.join(path,'max_freq_head.pkl'))
-# paleo_df.to_pickle(os.path.join(path,'max_freq_paleo.pkl'))
+disp_df = Matrian.main(path+"/", 'ALN_disp.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="disp")
+nodisp_df = Matrian.main(path+"/", 'ALN_nodisp.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="no_disp")
+head_df = Matrian.main(path+"/", 'ALN_head.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="head")
+paleo_df = Matrian.main(path+"/", 'ALN_paleo.fasta_sorted.fasta', 1, 2, 'p', geo_m='i', out_name="paleo")
+
+disp_df.to_pickle(os.path.join(path,'max_freq_disp.pkl'))
+nodisp_df.to_pickle(os.path.join(path,'max_freq_nodisp.pkl'))
+head_df.to_pickle(os.path.join(path,'max_freq_head.pkl'))
+paleo_df.to_pickle(os.path.join(path,'max_freq_paleo.pkl'))
 
 disp_df = pd.read_pickle(os.path.join(path,'max_freq_disp.pkl'))
 nodisp_df = pd.read_pickle(os.path.join(path,'max_freq_nodisp.pkl'))
