@@ -136,7 +136,7 @@ def plot_freq(self):  # Barcoding gap graph
     #    plt.close(f)
     plt.clf()
 
-fasta='/home/shey/Escritorio/mat_project/new_db/seq_align_last.fas'
+fasta='/home/shey/Escritorio/mat_project/new_db/silu/seq_silu_clus_last.fas'
 path=os.path.dirname(fasta)
 fasta_sort=sorting_fasta(fasta)   #Checking fasta
 fasta_sort.describe_fasta()
@@ -155,6 +155,9 @@ with open(name_sorted[1]) as fasta, \
     nodisp=[]
     head=[]
     bin_used=""
+    list_bin=[]
+    list_paleo=[]
+    list_cuenca=[]
     n_pu=0
     n_bu=0
     for seq in s:
@@ -166,12 +169,24 @@ with open(name_sorted[1]) as fasta, \
                 paleo.append(bin_used)
             if n_pu>1 and n_bu>=1:
                 head.append(bin_used)
+                # print("list_bin", len(list_bin),list_bin)
+                # print("list_paleo", len(list_paleo),list_paleo)
+                # print("list_cuenca", len(list_cuenca), list_cuenca)
+                if len(list_bin) > 0:
+                    paleo.append(list_bin[0])
             bin_used=cols[1]
             paleo_used=""
             n_pu=0
             basin_used=""
             n_bu=0
+            list_bin=[]
+            list_paleo=[]
+            list_cuenca=[]
         else:
+            if cols[2] == paleo_used and cols[3] != basin_used:
+                list_bin.append(cols[1])
+                list_paleo.append(cols[2])
+                list_cuenca.append(cols[3])
             if cols[2] != paleo_used:
                 n_pu+=1
                 paleo_used=cols[2]
